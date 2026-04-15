@@ -1,0 +1,284 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radhamita Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 50px;
+    z-index: 1000;
+}
+
+nav h2 {
+    color: #fff;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li {
+    cursor: pointer;
+}
+
+nav ul li:hover {
+    color: #ff7eb3;
+}
+
+/* HERO */
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+}
+
+header span {
+    color: #ff7eb3;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    background: #ff7eb3;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* SECTION */
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+/* ABOUT */
+.about p {
+    max-width: 600px;
+    margin: auto;
+}
+
+/* SKILLS */
+.skills-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.skill {
+    background: rgba(255,255,255,0.1);
+    padding: 15px 25px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.skill:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.1);
+}
+
+/* PROJECTS */
+.projects-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.project {
+    width: 250px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+
+.project:hover {
+    transform: translateY(-10px);
+}
+
+/* CONTACT */
+input, textarea {
+    width: 80%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #ff7eb3;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.3);
+}
+
+/* ANIMATION */
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1s;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2>Radhamita</h2>
+    <ul>
+        <li onclick="scrollToSection('home')">Home</li>
+        <li onclick="scrollToSection('about')">About</li>
+        <li onclick="scrollToSection('skills')">Skills</li>
+        <li onclick="scrollToSection('projects')">Projects</li>
+        <li onclick="scrollToSection('contact')">Contact</li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<header id="home">
+    <h1>Hello, I'm <span>Radhamita</span> </h1>
+    <p>A Creative Web Developer</p>
+    <button class="btn" onclick="changeBackground()">Change Theme</button>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="about fade">
+    <h2>About Me</h2>
+    <p>I am a passionate developer who loves creating beautiful and interactive websites. I enjoy learning new technologies and building creative projects.</p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="fade">
+    <h2>Skills</h2>
+    <div class="skills-container">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">UI/UX</div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="fade">
+    <h2>Projects</h2>
+    <div class="projects-container">
+        <div class="project">
+            <h3>Portfolio Website</h3>
+            <p>Personal responsive website.</p>
+        </div>
+        <div class="project">
+            <h3>Dynamic App</h3>
+            <p>Interactive JavaScript app.</p>
+        </div>
+        <div class="project">
+            <h3>Creative UI</h3>
+            <p>Modern UI design project.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade">
+    <h2>Contact Me</h2>
+    <input type="text" placeholder="Your Name"><br>
+    <input type="email" placeholder="Your Email"><br>
+    <textarea placeholder="Your Message"></textarea><br>
+    <button onclick="sendMessage()">Send</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+     Made with creativity by <strong>Radhamita</strong>
+</footer>
+
+<script>
+// Scroll function
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+}
+
+// Background changer
+function changeBackground() {
+    const colors = [
+        "linear-gradient(135deg, #667eea, #764ba2)",
+        "linear-gradient(135deg, #ff7eb3, #ff758c)",
+        "linear-gradient(135deg, #43cea2, #185a9d)"
+    ];
+    document.body.style.background =
+        colors[Math.floor(Math.random() * colors.length)];
+}
+
+// Contact alert
+function sendMessage() {
+    alert("Message sent successfully!");
+}
+
+// Fade animation on scroll
+const faders = document.querySelectorAll(".fade");
+
+window.addEventListener("scroll", () => {
+    faders.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            el.classList.add("show");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
